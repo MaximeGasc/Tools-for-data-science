@@ -77,23 +77,25 @@ else:
 
 # Show Plots
 if st.checkbox("Simple Bar Plot with Matplotlib "):
-	data = explore_data(my_dataset)
-	data.plot(kind='bar')
-	st.pyplot()
+    data = explore_data(my_dataset)
+    fig, ax = plt.subplots()
+    data.plot(kind='bar', ax=ax)
+    st.pyplot(fig)
 
 
 # Show Plots
 if st.checkbox("Simple Correlation Plot with Matplotlib "):
-	data = explore_data(my_dataset)
-	plt.matshow(data.corr())
-	st.pyplot()
+    data = explore_data(my_dataset)
+    fig, ax = plt.subplots()
+    ax.matshow(data.corr())
+    st.pyplot(fig)
 
 # Show Plots
 if st.checkbox("Simple Correlation Plot with Seaborn "):
-	data = explore_data(my_dataset)
-	st.write(sns.heatmap(data.corr(),annot=True))
-	# Use Matplotlib to render seaborn
-	st.pyplot()
+    data = explore_data(my_dataset)
+    fig, ax = plt.subplots()
+    sns.heatmap(data.corr(), annot=True, ax=ax)
+    st.pyplot(fig)
 
 # Show Plots
 if st.checkbox("Bar Plot of Groups or Counts"):
