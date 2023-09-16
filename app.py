@@ -148,9 +148,8 @@ if st.checkbox("Show Image/Hide Image"):
 if st.button("About App"):
 	st.subheader("Iris Dataset EDA App")
 	st.text("Built with Streamlit")
-	st.text("Thanks to the Streamlit Team Amazing Work")
 
-if st.checkbox("By"):
+if st.checkbox("Inspired By"):
 	st.text("Jesse E.Agbe(JCharis)")
 	st.text("Jesus Saves@JCharisTech")
 	
