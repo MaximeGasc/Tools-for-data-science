@@ -108,9 +108,9 @@ if st.checkbox("Simple Correlation Plot with Matplotlib "):
 
 # Show Plots
 if st.checkbox("Bar Plot of Groups or Counts"):
-	data = explore_data(my_dataset)
-	v_counts = data.groupby('species')
-	st.bar_chart(v_counts)
+    data = explore_data(my_dataset)
+    v_counts = data['species'].value_counts()
+    st.bar_chart(v_counts)
 
 
 # Iris Image Manipulation
