@@ -82,14 +82,6 @@ if st.checkbox("Simple Bar Plot with Matplotlib "):
     data.plot(kind='bar', ax=ax)
     st.pyplot(fig)
 
-
-# Show Plots
-if st.checkbox("Simple Correlation Plot with Matplotlib "):
-    data = explore_data(my_dataset)
-    fig, ax = plt.subplots()
-    ax.matshow(data.corr())
-    st.pyplot(fig)
-
 # Show Plots
 if st.checkbox("Simple Correlation Plot with Matplotlib "):
     data = explore_data(my_dataset)
