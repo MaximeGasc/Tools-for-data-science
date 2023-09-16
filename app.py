@@ -91,10 +91,15 @@ if st.checkbox("Simple Correlation Plot with Matplotlib "):
     st.pyplot(fig)
 
 # Show Plots
-if st.checkbox("Simple Correlation Plot with Seaborn "):
+if st.checkbox("Simple Correlation Plot with Matplotlib "):
     data = explore_data(my_dataset)
+    
+    # Check and handle data types and missing values
+    numeric_data = data.select_dtypes(include='number')  # Select numeric columns
+    numeric_data.dropna(inplace=True)  # Remove rows with missing values
+    
     fig, ax = plt.subplots()
-    sns.heatmap(data.corr(), annot=True, ax=ax)
+    ax.matshow(numeric_data.corr())
     st.pyplot(fig)
 
 # Show Plots
