@@ -90,8 +90,20 @@ if st.checkbox("Simple Correlation Plot with Matplotlib "):
     numeric_data = data.select_dtypes(include='number')  # Select numeric columns
     numeric_data.dropna(inplace=True)  # Remove rows with missing values
     
+    corr_matrix = numeric_data.corr()  # Calculate the correlation matrix
+    
     fig, ax = plt.subplots()
-    ax.matshow(numeric_data.corr())
+    cax = ax.matshow(corr_matrix, cmap='coolwarm')
+    
+    # Add column names as labels
+    ax.set_xticks(np.arange(len(corr_matrix.columns)))
+    ax.set_yticks(np.arange(len(corr_matrix.columns)))
+    ax.set_xticklabels(corr_matrix.columns)
+    ax.set_yticklabels(corr_matrix.columns)
+    
+    # Add color scale legend
+    fig.colorbar(cax)
+    
     st.pyplot(fig)
 
 # Show Plots
